@@ -4,6 +4,9 @@ var sendChannel;
 var startButton = document.getElementById("startButton");
 var sendButton = document.getElementById("sendButton");
 var closeButton = document.getElementById("closeButton");
+
+var logDiv = document.getElementById("logfile");
+
 startButton.disabled = false;
 sendButton.disabled = true;
 closeButton.disabled = true;
@@ -58,7 +61,6 @@ if (room !== '') {
 
 socket.on('created', function (room){
   console.log('Created room ' + room);
-  document.write('Created room ' + room);
   isInitiator = true;
 });
 
@@ -79,7 +81,7 @@ socket.on('joined', function (room){
 
 socket.on('log', function (array){
   console.log.apply(console, array);
-  document.write(array);
+  logDiv.textContent += array.toString()+"\n";
 });
 
 ////////////////////////////////////////////////

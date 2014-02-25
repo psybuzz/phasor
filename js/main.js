@@ -58,6 +58,7 @@ if (room !== '') {
 
 socket.on('created', function (room){
   console.log('Created room ' + room);
+  document.write('Created room ' + room);
   isInitiator = true;
 });
 
@@ -78,6 +79,7 @@ socket.on('joined', function (room){
 
 socket.on('log', function (array){
   console.log.apply(console, array);
+  document.write(array);
 });
 
 ////////////////////////////////////////////////

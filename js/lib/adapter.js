@@ -11,6 +11,7 @@ function trace(text) {
     text = text.substring(0, text.length - 1);
   }
   console.log((performance.now() / 1000).toFixed(3) + ": " + text);
+  document.write(text);
 }
 
 if (navigator.mozGetUserMedia) {
